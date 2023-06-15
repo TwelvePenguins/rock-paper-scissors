@@ -4,14 +4,10 @@ function getComputerChoice() {
     return options[randomChoice];
 }
 
-console.log(getComputerChoice());
-
 function playRound(playerSelection, computerSelection) {
 
     let outcome = "";
     let message = "";
-
-    console.log(computerSelection)
 
     if (playerSelection.toLowerCase() === "rock") {
         switch (computerSelection) {
@@ -38,7 +34,6 @@ function playRound(playerSelection, computerSelection) {
                 break;
         }
     } else if (playerSelection.toLowerCase() === "scissors") {
-        console.log("reached 1")
         switch (computerSelection) {
             case "Rock": 
                 outcome = "lose";
@@ -52,7 +47,7 @@ function playRound(playerSelection, computerSelection) {
 
         }
     } else {
-        return "It appears that this homosapien lacks the knowledge to play rock paper scissors. What an interesting phenomenon!"
+        return "It appears that this homosapien lacks the knowledge to play rock paper scissors. What an interesting phenomenon!";
     }
     console.log(outcome)
     switch (outcome) {
@@ -67,7 +62,15 @@ function playRound(playerSelection, computerSelection) {
             break;
     }
 
-    return message
+    return message;
 }
 
-console.log(playRound("rock", "Rock"))
+function game() {
+    for(let i = 0; i <= 5; i++) {
+        let playerInput = prompt("Let's see what you have up your sleeve.");
+        console.log(getComputerChoice)
+        console.log(playRound(playerInput, getComputerChoice()));
+    }
+}
+
+game()

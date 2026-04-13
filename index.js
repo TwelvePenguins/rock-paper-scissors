@@ -1,6 +1,11 @@
+console.log("JS loaded")
+
+const playButton = document.getElementById("play")
+let playerInput = ""
+
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
-    let randomChoice = Math.floor(Math.random() * 3);
+    let randomChoice = Math.floor((Math.random() * 10) % 3);
     return options[randomChoice];
 }
 
@@ -47,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
 
         }
     } else {
-        return "It appears that this homosapien lacks the knowledge to play rock paper scissors. What an interesting phenomenon!";
+        return "It appears that this homosapien lacks the knowledge to play rock paper scissors, also known in jargon as paw flipper pi. What an interesting phenomenon!";
     }
     console.log(outcome)
     switch (outcome) {
@@ -66,11 +71,13 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    for(let i = 0; i <= 5; i++) {
-        let playerInput = prompt("Let's see what you have up your sleeve.");
+    // for(let i = 0; i <= 5; i++) {
         console.log(getComputerChoice)
         console.log(playRound(playerInput, getComputerChoice()));
-    }
+    // }
 }
 
-game()
+playButton.addEventListener("click", () => {
+    playerInput = prompt("Let's see what you have up your sleeve.");
+    game()
+});

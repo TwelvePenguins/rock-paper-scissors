@@ -5,6 +5,7 @@ const actionables = document.querySelector(".actionables");
 const displayedMessage = document.querySelector("#message")
 const displayedPenguinScore = document.querySelector("#penguin-score")
 const displayedPlayerScore = document.querySelector("#player-score")
+const resetButton = document.querySelector("#reset")
 
 let message = ""
 let outcome = "";
@@ -16,12 +17,21 @@ actionables.addEventListener("click", (event) => {
     displayedMessage.textContent = message;
 
     if (outcome == "lose") {
-        penguinScore += 1
-        displayedPenguinScore.textContent = penguinScore
+        penguinScore += 1;
+        displayedPenguinScore.textContent = penguinScore;
     } else if (outcome == "win") {
-        playerScore += 1
-        displayedPlayerScore.textContent = playerScore
-    }
+        playerScore += 1;
+        displayedPlayerScore.textContent = playerScore;
+    };
+});
+
+resetButton.addEventListener("click", () => {
+    penguinScore = 0;
+    playerScore = 0;
+
+    displayedPenguinScore.textContent = penguinScore;
+    displayedPlayerScore.textContent = playerScore;
+    displayedMessage.textContent = "";
 });
 
 

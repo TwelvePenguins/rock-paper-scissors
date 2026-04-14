@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./index.js" defer></script>
+    <style>
+        td, th {
+            text-align: center;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="header">What shalt thou go for?</div>
@@ -15,7 +22,17 @@
     </div>
     <div class="results">
         <p id="message"></p>
-        <p id="scoreline"></p>
+        <br>
+        <table style="border-collapse: collapse;">
+            <tr>
+                <th>You</th>
+                <th>The almighty penguin knight!</th>
+            </tr>
+            <tr>
+                <td id="player-score">0</td>
+                <td id="penguin-score">0</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

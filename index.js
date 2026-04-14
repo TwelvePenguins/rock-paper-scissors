@@ -2,15 +2,26 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 const actionables = document.querySelector(".actionables");
-const displayedScoreline = document.querySelector("#scoreline")
 const displayedMessage = document.querySelector("#message")
+const displayedPenguinScore = document.querySelector("#penguin-score")
+const displayedPlayerScore = document.querySelector("#player-score")
 
 let message = ""
-let scoreline = "Results"
+let outcome = "";
+let penguinScore = 0
+let playerScore = 0
 
 actionables.addEventListener("click", (event) => {
     message = playRound(event.target.id, getComputerChoice());
     displayedMessage.textContent = message;
+
+    if (outcome == "lose") {
+        penguinScore += 1
+        displayedPenguinScore.textContent = penguinScore
+    } else if (outcome == "win") {
+        playerScore += 1
+        displayedPlayerScore.textContent = playerScore
+    }
 });
 
 
@@ -22,9 +33,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-
-    let outcome = "";
-    let message = "";
 
     if (playerSelection.toLowerCase() === "rock") {
         switch (computerSelection) {

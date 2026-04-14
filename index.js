@@ -1,7 +1,19 @@
-console.log("JS loaded")
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+const actionables = document.querySelector(".actionables");
+const displayedScoreline = document.querySelector("#scoreline")
+const displayedMessage = document.querySelector("#message")
 
-const playButton = document.getElementById("play")
-let playerInput = ""
+let message = ""
+let scoreline = "Results"
+
+actionables.addEventListener("click", (event) => {
+    message = playRound(event.target.id, getComputerChoice());
+    displayedMessage.textContent = message;
+});
+
+
 
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
@@ -70,14 +82,7 @@ function playRound(playerSelection, computerSelection) {
     return message;
 }
 
-function game() {
-    // for(let i = 0; i <= 5; i++) {
-        console.log(getComputerChoice)
-        console.log(playRound(playerInput, getComputerChoice()));
-    // }
-}
-
-playButton.addEventListener("click", () => {
-    playerInput = prompt("Let's see what you have up your sleeve.");
-    game()
-});
+// function game() {
+//     console.log(getComputerChoice)
+//     console.log(playRound(playerInput, getComputerChoice()));
+// }
